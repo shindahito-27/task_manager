@@ -2,10 +2,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { useContext } from "react";
 import { TaskContext } from "../TaskContext";
 function TaskItem({title, description, _id}) {
-  const { getAllTasks,task,setShowEdit,setCurrentTask}=useContext(TaskContext);
+  const { getAllTasks,task,BASE_URL,setShowEdit,setCurrentTask}=useContext(TaskContext);
   const token = localStorage.getItem("auth-token");
   const handledel = async () => {
-    const res = await fetch(`http://localhost:8080/task/${_id}`, {
+    const res = await fetch(`${BASE_URL}/task/${_id}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`,

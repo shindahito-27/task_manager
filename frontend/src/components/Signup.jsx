@@ -1,7 +1,10 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
+import { useContext } from "react";
+import { TaskContext } from "../TaskContext";
 function Signup() {
   const navigate=useNavigate();
+  const {BASE_URL}=useContext(TaskContext);
   const handleSubmit = async (e) => {
     e.preventDefault();
     const name = document.getElementById("signup-username").value;
@@ -12,7 +15,7 @@ function Signup() {
       console.log("Re-Enter the same password");
       return;
     }
-    const response = await fetch("http://localhost:8080/auth/signup", {
+    const response = await fetch(`${BASE_URL}/auth/signup`, {
       method:"POST",
       headers: {
         "Content-Type": "application/json",

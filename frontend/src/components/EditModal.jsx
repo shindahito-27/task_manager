@@ -1,7 +1,7 @@
 import { useContext, useState, useEffect } from "react";
 import { TaskContext } from "../TaskContext";
 function EditModal() {
-    const { tasks,getAllTasks,showEdit, setShowEdit, setCurrentTask,currentTask, settasks } = useContext(TaskContext);
+    const { tasks,getAllTasks,showEdit, setShowEdit, setCurrentTask,currentTask, settasks,BASE_URL } = useContext(TaskContext);
     let task = tasks.find(t => t._id === currentTask);
     const [title, setTitle] = useState("");
     const [desc, setDesc] = useState("");
@@ -20,7 +20,7 @@ function EditModal() {
     const handleUpdate = async () => {
         const token = localStorage.getItem("auth-token");
 
-        const res = await fetch(`http://localhost:8080/task/${currentTask}`, {
+        const res = await fetch(`${BASE_URL}/task/${currentTask}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",

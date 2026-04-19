@@ -3,12 +3,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { useContext } from "react";
 import { TaskContext } from "../TaskContext";
 function AddNotes() {
-  const {tasks,settasks,getAllTasks}=useContext(TaskContext);
+  const {tasks,settasks,getAllTasks,BASE_URL}=useContext(TaskContext);
   const handleadd = async () => {
     const token = localStorage.getItem("auth-token");
     const t = document.getElementById("task-title").value;
     const d = document.getElementById("task-body").value;
-    const res = await fetch("http://localhost:8080/task/add", {
+    const res = await fetch(`${BASE_URL}/task/add`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -1,9 +1,11 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import {useNavigate} from "react-router-dom";
 import { useEffect} from "react";
+import { useContext } from "react";
+import { TaskContext } from "../TaskContext";
 function Login() {
   const navigate = useNavigate();
-
+    const {BASE_URL}=useContext(TaskContext);
   //if already logged in
   useEffect(()=>{
     if(localStorage.getItem("auth-token")){
@@ -14,7 +16,7 @@ function Login() {
     e.preventDefault();
     const email = document.getElementById("login-email").value;
     const password = document.getElementById("login-password").value;
-    const response = await fetch("http://localhost:8080/auth/login", {
+    const response = await fetch(`${BASE_URL}/auth/login`, {
       method:"POST",
       headers: {
         "Content-Type": "application/json",

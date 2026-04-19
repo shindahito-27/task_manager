@@ -3,6 +3,7 @@ import {createContext, useState} from "react";
 export const TaskContext = createContext();
 
 export const TaskProvider = ({children}) => {
+  const BASE_URL = "https://task-manager-fliw.onrender.com";
   const [tasks, settasks] = useState([]);
   const [showEdit, setShowEdit] = useState(false);
   const [currentTask, setCurrentTask] = useState(null);
@@ -28,6 +29,7 @@ export const TaskProvider = ({children}) => {
   return (
     <TaskContext.Provider
       value={{
+        BASE_URL,
         tasks,
         settasks,
         showEdit,
