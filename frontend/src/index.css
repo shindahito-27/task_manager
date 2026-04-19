@@ -1,0 +1,86 @@
+:root {
+  font-family: "Trebuchet MS", "Segoe UI Variable", "Gill Sans", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #27304d;
+  background:
+    radial-gradient(circle at top, rgba(255, 196, 120, 0.45), transparent 30%),
+    linear-gradient(180deg, #fff6ef 0%, #eef5ff 48%, #f7f1ff 100%);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  --text-primary: #24304d;
+  --muted: #67718f;
+  --line: rgba(95, 110, 180, 0.18);
+  --input-bg: rgba(255, 255, 255, 0.88);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  color: var(--text-primary);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.45rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+input,
+textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 0.95rem 1rem;
+  background: var(--input-bg);
+  color: var(--text-primary);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: rgba(111, 123, 247, 0.55);
+  box-shadow: 0 0 0 4px rgba(111, 123, 247, 0.12);
+  transform: translateY(-1px);
+}
+
+textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#root {
+  min-height: 100vh;
+}
