@@ -10,7 +10,7 @@ export const TaskProvider = ({children}) => {
   const getAllTasks = async () => {
     const token = localStorage.getItem("auth-token");
     // console.log(token);
-    const response = await fetch("http://localhost:8080/task/", {
+    const response = await fetch(`${BASE_URL}/task/`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,
